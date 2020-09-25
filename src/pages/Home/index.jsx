@@ -21,7 +21,7 @@ class Home extends Component {
         <Button
           type='primary'
           onClick={() => {
-            http.get('/topics').then(console.log)
+            http.get('/topics-20').then(console.log)
           }}
         >
           click

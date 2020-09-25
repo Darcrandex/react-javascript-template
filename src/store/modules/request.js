@@ -39,6 +39,11 @@ class Request extends StoreModule {
   _onResponseError = (err = null) => {
     this.requestCount--
 
+    const { historyStore } = this.$getStores()
+    if (historyStore && historyStore.history) {
+      historyStore.history.push('/login')
+    }
+
     return Promise.reject(err)
   }
 }

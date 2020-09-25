@@ -1,10 +1,12 @@
 import React, { Suspense } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
 import { FullScreenLoading } from '@/components'
 import routes from './routes'
 
 function App(props) {
+  props.historyStore.setHistory(props.history)
+
   return (
     <>
       <Suspense fallback={<FullScreenLoading loading />}>
@@ -20,4 +22,4 @@ function App(props) {
   )
 }
 
-export default inject('request')(observer(App))
+export default inject('request', 'historyStore')(observer(withRouter(App)))
