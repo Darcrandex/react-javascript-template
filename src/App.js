@@ -22,4 +22,4 @@ function App(props) {
   )
 }
 
-export default inject('request', 'historyStore')(observer(withRouter(App)))
+export default withRouter(inject('request', 'historyStore')(observer(App)))

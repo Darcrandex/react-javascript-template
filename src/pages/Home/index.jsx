@@ -7,7 +7,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
-import { Button } from 'antd'
+import { Button, DatePicker } from 'antd'
 import http from '@/utils/http'
 import styles from './styles.module.less'
 
@@ -17,20 +17,41 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h1 className={styles.title}>Home Page</h1>
-        <Button
-          type='primary'
-          onClick={() => {
-            http.get('/topics-20').then(console.log)
-          }}
-        >
-          click
-        </Button>
+        <h1>Home Page</h1>
 
-        <p>count: {this.props.counter.count}</p>
-        <Button onClick={() => this.props.counter.add()}>add</Button>
+        <ol>
+          <li>
+            <p>less css module</p>
+            <p className={styles.title}>custom title</p>
+          </li>
+          <li>
+            <p>antd</p>
 
-        <NavLink to='/test'>to test</NavLink>
+            <Button type='primary'>click me</Button>
+            <DatePicker />
+          </li>
+          <li>
+            <p>react router</p>
+            <NavLink to='/test'>to test</NavLink>
+          </li>
+          <li>
+            <p>axios</p>
+            <Button
+              type='primary'
+              onClick={() => {
+                http.get('/topics').then(console.log)
+              }}
+            >
+              click
+            </Button>
+          </li>
+          <li>
+            <p>mobx</p>
+            <p>count: {this.props.counter.count}</p>
+            <Button onClick={() => this.props.counter.add()}>add</Button>
+            <Button onClick={() => this.props.counter.sub()}>async sub</Button>
+          </li>
+        </ol>
       </div>
     )
   }

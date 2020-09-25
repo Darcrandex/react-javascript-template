@@ -12,11 +12,6 @@ class Request extends StoreModule {
   }
 
   @action
-  add = () => {
-    this.requestCount++
-  }
-
-  @action
   _onRequest = (config = {}) => {
     this.requestCount++
 
