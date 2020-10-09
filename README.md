@@ -86,6 +86,8 @@ yarn add axios
 
 ## mobx
 
+> [使用装饰器](https://mobx.js.org/best/decorators.html#enabling-decorator-syntax)
+
 ```
 yarn add mobx@4.15.4 mobx-react //兼容ie9+
 yarn add @babel/plugin-proposal-decorators -D
