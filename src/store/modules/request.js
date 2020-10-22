@@ -13,26 +13,35 @@ class Request extends StoreModule {
 
   @action
   _onRequest = (config = {}) => {
-    this.requestCount++
+    // useLoading
+    // 自定义的配置项,表示是否使用默认的全屏loading遮罩层,默认为true
+    let { url = '', headers = {}, useLoading = true } = config
+    if (useLoading) {
+      this.requestCount++
+    }
 
-    let { url = '', headers = {} } = config
     const token = window.localStorage.getItem('token')
     token && (headers.Authorization = token)
+
     url = withProxy(url)
 
-    return { ...config, url, headers }
+    return { ...config, url, headers, useLoading }
   }
 
   @action
   _onResponse = (response = {}) => {
-    this.requestCount--
+    if (response.config.useLoading) {
+      this.requestCount--
+    }
 
     return response.data
   }
 
   @action
   _onResponseError = (err = null) => {
-    this.requestCount--
+    if (err.config.useLoading) {
+      this.requestCount--
+    }
 
     const { historyStore } = this.$getStores()
     if (historyStore && historyStore.history) {
