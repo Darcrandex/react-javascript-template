@@ -10,6 +10,10 @@ const routes = [
     path: '/test',
     component: lazy(() => import('@/pages/TestPage')),
   },
+  {
+    path: '/support-test',
+    component: lazy(() => import('@/pages/SupportTest')),
+  },
 ]
 
 export default routes
