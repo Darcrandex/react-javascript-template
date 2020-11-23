@@ -124,3 +124,12 @@ yarn add cross-env -D
   "test": "node scripts/test.js"
 },
 ```
+
+## 打包后引用路径的问题
+
+默认打包后,资源引用的路径是'/',这可能会导致在部署的时候,资源引用错误(单个服务器下有多个项目)
+
+```
+// package.json
+"homepage": "./"
+```
