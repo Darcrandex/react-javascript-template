@@ -13,6 +13,7 @@ import zh_CN from 'antd/lib/locale-provider/zh_CN'
 import moment from 'moment'
 import 'moment/locale/zh-cn'
 
+import injectAppConfig from '@/utils/app-config'
 import store from './store'
 import App from './App'
 import './antd-theme.less'
@@ -33,17 +34,19 @@ const confirmFn = (msg = '', cb = (ok = false) => {}) => {
   })
 }
 
-ReactDOM.render(
-  <HashRouter getUserConfirmation={confirmFn}>
-    <MobxProvider {...store}>
-      <ConfigProvider locale={zh_CN}>
-        <App />
-      </ConfigProvider>
-    </MobxProvider>
-  </HashRouter>,
+injectAppConfig(() => {
+  ReactDOM.render(
+    <HashRouter getUserConfirmation={confirmFn}>
+      <MobxProvider {...store}>
+        <ConfigProvider locale={zh_CN}>
+          <App />
+        </ConfigProvider>
+      </MobxProvider>
+    </HashRouter>,
 
-  document.getElementById('root')
-)
+    document.getElementById('root')
+  )
+})
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

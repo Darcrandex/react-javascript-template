@@ -1,0 +1,4 @@
+{
+  "PRODUCTION_ORIGIN": "http://www.abc.com",
+  "PRODUCTION_API_URL": "http://www.abc.com/v1/api"
+}
