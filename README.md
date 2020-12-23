@@ -133,3 +133,17 @@ yarn add cross-env -D
 // package.json
 "homepage": "./"
 ```
+
+## 动态项目配置
+
+项目打包之后依然可以便捷的重新修改配置.
+
+具体内容和原理请查看 [react 使用 window 全局变量](https://darcrandex.github.io/src/posts/react-use-global-variables.html)
+
+```json
+// /public/config.json
+{
+  "PRODUCTION_OPTION_A": "anything you want",
+  "PRODUCTION_OPTION_B": { "key": "value" }
+}
+```
