@@ -628,7 +628,7 @@ const PropertyTable = ({ title = '', keys = [] }) => {
     <div>
       <h1 style={{ paddingLeft: 40 }}>{title}</h1>
       <ol style={{ padding: '0 40px', listStyleType: 'decimal' }}>
-        {keys.map(k => (
+        {keys.map((k) => (
           <li key={k.name} style={{ marginBottom: 10, backgroundColor: k.status ? COLORS.OK : COLORS.ERROR }}>
             <a
               style={{ display: 'block', padding: 10, color: '#fff', fontSize: 20 }}

@@ -17,7 +17,7 @@ class Counter extends StoreModule {
 }
 
 async function waiting(second = 1) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve()
     }, 1000 * second)

@@ -55,6 +55,7 @@ const cssModuleClassName = isEnvDevelopment ? '[path]__[name]__[local]' : '[hash
 ## antd
 
 ```
+// 为了兼容ie9
 yarn add antd@3.26.15
 ```
 
@@ -66,7 +67,7 @@ javascriptEnabled: true, //支持less可以使用变量
 
 新建`src/antd-theme.less`并在`src/index.js`中引入.
 
-如果使用[按需加载](https://3x.ant.design/docs/react/introduce-cn#%E6%8C%89%E9%9C%80%E5%8A%A0%E8%BD%BD),[自定义主题](https://3x.ant.design/docs/react/customize-theme-cn#%E5%9C%A8-create-react-app-%E4%B8%AD%E5%AE%9A%E5%88%B6%E4%B8%BB%E9%A2%98)就无法使用
+如果使用[按需加载](https://3x.ant.design/docs/react/introduce-cn#%E6%8C%89%E9%9C%80%E5%8A%A0%E8%BD%BD),[自定义主题](https://3x.ant.design/docs/react/customize-theme-cn#%E5%9C%A8-create-react-app-%E4%B8%AD%E5%AE%9A%E5%88%B6%E4%B8%BB%E9%A2%98)就无法使用. 目前`js`部分默认会按需加载, css 部分则会使用完整的文件(400+ kb).
 
 ## proxy axios
 
@@ -164,16 +165,10 @@ yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
 
 ## 添加打包时间
 
-```js
-// .env
-REACT_APP_BUILD_DATE
-```
+> html 模版可使用[ejs 语法](https://ejs.bootcss.com/#about)
+
+`/public/index.html`
 
 ```html
-// public/index.html <meta name="build-date" content="%REACT_APP_BUILD_DATE%" />
-```
-
-```js
-// scripts/build.js
-process.env.REACT_APP_BUILD_DATE = new Date().toLocaleString()
+<meta name="build-date" content="<%= new Date().toLocaleString() %>" />
 ```
