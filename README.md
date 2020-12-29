@@ -147,3 +147,33 @@ yarn add cross-env -D
   "PRODUCTION_OPTION_B": { "key": "value" }
 }
 ```
+
+## 集成 eslint+prettier
+
+> [参考链接](https://segmentfault.com/a/1190000022110632)
+
+`vscode`安装插件`eslint`,`prettier`
+
+安装依赖
+
+```sh
+yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
+```
+
+新增配置文件: `.eslint.js`, `.eslintignore`, `prettierrc.js`
+
+## 添加打包时间
+
+```js
+// .env
+REACT_APP_BUILD_DATE
+```
+
+```html
+// public/index.html <meta name="build-date" content="%REACT_APP_BUILD_DATE%" />
+```
+
+```js
+// scripts/build.js
+process.env.REACT_APP_BUILD_DATE = new Date().toLocaleString()
+```
