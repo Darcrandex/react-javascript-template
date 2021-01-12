@@ -161,7 +161,7 @@ yarn add cross-env -D
 yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
 ```
 
-新增配置文件: `.eslint.js`, `.eslintignore`, `prettierrc.js`
+新增配置文件: `.eslintrc.js`, `.eslintignore`, `prettierrc.js`
 
 ## 添加打包时间
 
