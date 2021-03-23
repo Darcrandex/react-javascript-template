@@ -16,7 +16,7 @@ class Request extends StoreModule {
 
   @action
   sub = () => {
-    this.requestCount--
+    this.requestCount = Math.max(0, this.requestCount - 1)
   }
 }
 

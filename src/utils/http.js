@@ -81,9 +81,13 @@ axiosInstance.interceptors.response.use(
         return Promise.reject(response.data)
     }
   },
-  (err = {}) => {
-    const { useLoading } = err.config
-    useLoading && requestStore.sub()
+  (err) => {
+    // 先获取 err 中保存的 config
+    // 注意: 通过 'cancel' 取消的请求无法通过这种方式获取 config
+    if (err && typeof err.toJSON === 'function') {
+      const { useLoading } = err.toJSON().config || {}
+      useLoading && requestStore.sub()
+    }
 
     return Promise.reject(err)
   }
