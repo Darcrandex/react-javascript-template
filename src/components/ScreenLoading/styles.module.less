@@ -1,0 +1,32 @@
+@time: 0.25s;
+
+.container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100vh;
+  background-color: rgba(#fff, 0.5);
+}
+
+.loading_ico {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: @theme-color;
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity @time, visibility @time;
+}
+
+.hide {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: height 0s @time, opacity @time, visibility @time;
+}

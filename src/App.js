@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import { Route, Switch, withRouter } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
-import { FullScreenLoading } from '@/components'
+import { ScreenLoading } from '@/components'
 import routes from './routes'
 
 function App(props) {
@@ -9,7 +9,7 @@ function App(props) {
 
   return (
     <>
-      <Suspense fallback={<FullScreenLoading loading />}>
+      <Suspense fallback={<ScreenLoading loading />}>
         <Switch>
           {routes.map(({ path, component, ...rest }, index) => (
             <Route key={index} path={path} component={component} {...rest} />
@@ -17,7 +17,7 @@ function App(props) {
         </Switch>
       </Suspense>
 
-      <FullScreenLoading loading={props.request.isFetching} />
+      <ScreenLoading loading={props.request.isFetching} />
     </>
   )
 }

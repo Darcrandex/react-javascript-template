@@ -1,1 +1,1 @@
-export { default as FullScreenLoading } from './FullScreenLoading'
+export { default as ScreenLoading } from './ScreenLoading'
