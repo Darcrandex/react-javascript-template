@@ -93,11 +93,9 @@ axiosInstance.interceptors.response.use(
   }
 )
 
-const http = {
-  get: (url = '', params = {}, config = {}) => axiosInstance.get(url, { params, ...config }),
-  delete: (url = '', params = {}, config = {}) => axiosInstance.delete(url, { params, ...config }),
-  post: axiosInstance.post,
-  put: axiosInstance.put,
-}
+export const get = (url = '', params = {}, config = { useLoading: true }) =>
+  axiosInstance.get(url, { params, ...config })
+export const post = (url = '', data = {}, config = { useLoading: true }) => axiosInstance.post(url, data, config)
+const http = { get, post }
 
 export default http
