@@ -16,7 +16,7 @@ module.exports = {
   // 自定义的规则
   rules: {
     'import/first': 'warn',
-    'no-unused-vars': 'error',
+    'no-unused-vars': 'warn',
     'react/no-unused-state': 'warn',
     'no-shadow': 'off',
   },
