@@ -1,3 +1,8 @@
+# react 项目模版(js) v2.0
+
+> 这个版本是基于`CRA@4`和`craco@6`构建的. 主要是为了避免`eject`导致的各种问题,并且简化了项目结构.
+> 目前这个模版仍然兼容到 IE9.
+
 ## 构建过程
 
 ### 创建初始项目[CRA](https://create-react-app.dev/docs/getting-started)
@@ -98,8 +103,8 @@ yarn add core-js regenerator-runtime --save
 在`./src/index.js`头部引入
 
 ```js
-import "core-js";
-import "regenerator-runtime";
+import 'core-js'
+import 'regenerator-runtime'
 ```
 
 [CRA 浏览器支持](https://github.com/facebook/create-react-app/blob/master/packages/react-app-polyfill/README.md)
@@ -111,8 +116,8 @@ yarn add react-app-polyfill --save
 在`./src/index.js`头部引入
 
 ```js
-import "react-app-polyfill/ie9";
-import "react-app-polyfill/stable";
+import 'react-app-polyfill/ie9'
+import 'react-app-polyfill/stable'
 ```
 
 ### 引入 eslint
