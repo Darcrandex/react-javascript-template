@@ -122,6 +122,8 @@ import 'react-app-polyfill/stable'
 
 ### 引入 eslint
 
+>[参考文章](https://segmentfault.com/a/1190000020379876)
+
 ```cmd
 yarn add eslint -D
 ```
