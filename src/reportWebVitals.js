@@ -1,5 +1,6 @@
 // 这个函数是用来检测项目性能的
-// 在 '/src/index.js' 引入这个函数. 然后在文件的最后一行添加:
+// 仅在开发模式下使用
+// 在 '/src/index.jsx' 引入这个函数. 然后在文件的最后一行添加:
 // reportWebVitals(console.log)
 
 // 详情内容:https://github.com/GoogleChrome/web-vitals
