@@ -1,8 +1,18 @@
-import { configure } from "mobx";
-import counter from "./modules/counter";
+import React, { createContext, useContext } from 'react'
+import { configure } from 'mobx'
+import counter from './modules/counter'
 
-configure({ enforceActions: "observed" });
+configure({ enforceActions: 'observed' })
 
-const store = { counter };
+export const store = { counter }
 
-export default store;
+// hooks 模式
+const StoreContext = createContext(store)
+export const StoreProvider = ({ children }) => <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
+export const useStore = () => {
+  const store = useContext(StoreContext)
+  if (!store) {
+    throw new Error('no store')
+  }
+  return store
+}

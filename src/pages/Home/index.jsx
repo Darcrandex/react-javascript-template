@@ -8,6 +8,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
 import { Button, DatePicker } from 'antd'
+
+import { useStore } from '@/store'
 import Title from '@/components/Title'
 import { get } from '@/utils/http'
 
@@ -36,6 +38,9 @@ class Home extends React.Component {
             <Button loading={this.props.counter.loading} onClick={this.props.counter.sub}>
               sub
             </Button>
+
+            <hr />
+            <CounterWithHooks />
           </li>
 
           <li>
@@ -60,5 +65,22 @@ class Home extends React.Component {
     )
   }
 }
+
+const CounterWithHooks = observer(() => {
+  // 在函数组件中使用 mobx-store-hooks
+  // 优点是能明确 store 的来源,并获得类型检测
+  const { counter } = useStore()
+
+  return (
+    <div>
+      <h2>use counter store with hooks</h2>
+      <p>{counter.count}</p>
+      <Button onClick={counter.add}>add</Button>
+      <Button loading={counter.loading} onClick={counter.sub}>
+        sub
+      </Button>
+    </div>
+  )
+})
 
 export default Home
