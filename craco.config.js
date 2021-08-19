@@ -1,10 +1,10 @@
-const path = require("path");
-const CracoAntDesignPlugin = require("craco-antd");
-const CracoAlias = require("craco-alias");
-const CracoLessPlugin = require("craco-less");
-const cracoPluginStyleResourcesLoader = require("craco-plugin-style-resources-loader");
+const path = require('path')
+const CracoAntDesignPlugin = require('craco-antd')
+const CracoAlias = require('craco-alias')
+const CracoLessPlugin = require('craco-less')
+const cracoPluginStyleResourcesLoader = require('craco-plugin-style-resources-loader')
 
-const isDevelopmentMode = process.env.NODE_ENV === "development";
+const isDevelopmentMode = process.env.NODE_ENV === 'development'
 
 module.exports = {
   // 允许使用装饰器语法
@@ -13,8 +13,7 @@ module.exports = {
     assumptions: {
       setPublicClassFields: true,
     },
-    presets: ["@babel/preset-env"],
-    plugins: [["@babel/plugin-proposal-decorators", { legacy: true }]],
+    plugins: [['@babel/plugin-proposal-decorators', { legacy: true }]],
   },
 
   plugins: [
@@ -23,7 +22,7 @@ module.exports = {
       plugin: CracoAlias,
       options: {
         // 从 '/jsconfig.json' 中的获取配置
-        source: "jsconfig",
+        source: 'jsconfig',
       },
     },
 
@@ -32,13 +31,10 @@ module.exports = {
       plugin: CracoAntDesignPlugin,
       options: {
         // 自定义样式 .less 文件路径
-        customizeThemeLessPath: path.resolve(
-          __dirname,
-          "./src/antd.customize.less"
-        ),
+        customizeThemeLessPath: path.resolve(__dirname, './src/antd.customize.less'),
         babelPluginImportOptions: {
-          libraryName: "antd",
-          libraryDirectory: "es",
+          libraryName: 'antd',
+          libraryDirectory: 'es',
           style: true,
         },
       },
@@ -55,9 +51,9 @@ module.exports = {
           },
         },
         modifyLessRule: function (lessRule, _context) {
-          lessRule.test = /\.less$/;
-          lessRule.exclude = /\.module\.less$/;
-          return lessRule;
+          lessRule.test = /\.less$/
+          lessRule.exclude = /\.module\.less$/
+          return lessRule
         },
       },
     },
@@ -71,15 +67,15 @@ module.exports = {
           },
         },
         modifyLessRule: function (lessRule, _context) {
-          lessRule.test = /\.module\.less$/;
-          lessRule.exclude = undefined;
-          return lessRule;
+          lessRule.test = /\.module\.less$/
+          lessRule.exclude = undefined
+          return lessRule
         },
         cssLoaderOptions: {
           modules: {
             localIdentName: isDevelopmentMode
-              ? "[path]__[name]__[local]_[hash:base64:5]" // 开发模式,显示完整的less文件路径,方便调试
-              : "[hash:base64:10]",
+              ? '[path]__[name]__[local]_[hash:base64:5]' // 开发模式,显示完整的less文件路径,方便调试
+              : '[hash:base64:10]',
           },
         },
       },
@@ -90,9 +86,9 @@ module.exports = {
     {
       plugin: cracoPluginStyleResourcesLoader,
       options: {
-        patterns: path.join(__dirname, "./src/styles/*.less"),
-        styleType: "less",
+        patterns: path.join(__dirname, './src/styles/*.less'),
+        styleType: 'less',
       },
     },
   ],
-};
+}
